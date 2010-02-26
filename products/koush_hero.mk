@@ -20,17 +20,17 @@
 $(call inherit-product, vendor/koush/products/koush_us.mk)
 
 # How this product is called in the build system
-PRODUCT_NAME := koush_magic_us
+PRODUCT_NAME := koush_hero
 
 # Which actual hardware this is based on (this is a path under vendor/)
 PRODUCT_MANUFACTURER := htc
-PRODUCT_DEVICE := magic
+PRODUCT_DEVICE := hero
 
 # The user-visible product name
-PRODUCT_MODEL := Magic (US)
+PRODUCT_MODEL := Hero (US)
 
-# Pick up some sapphire-US-specific settings (gps and voice settings for US).
-include vendor/htc/magic/device_magic_us.mk
+# Pick up some hero-specific settings
+include vendor/htc/hero/device.mk
 
 # Pick up some sounds
 include frameworks/base/data/sounds/AudioPackage2.mk

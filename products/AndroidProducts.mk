@@ -26,4 +26,5 @@
 #
 
 PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/koush_hero.mk \
     $(LOCAL_DIR)/koush_magic_us.mk
