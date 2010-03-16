@@ -15,6 +15,6 @@ do
     rm -rf $OUT/obj/EXECUTABLES/recovery_intermediates
     DEVICE_NAME=$(echo $TARGET_PRODUCT | sed s/koush_// | sed s/aosp_// | sed s/_us// | sed s/cyanogen_//)
     make -j16 recoveryimage 
-    ccp $OUT/recovery.img recoveries/recovery-clockwork-$1-$DEVICE_NAME.img
-    ccp $OUT/recovery.img recoveries/recovery-clockwork-$DEVICE_NAME.img
+    mcp $OUT/recovery.img recoveries/recovery-clockwork-$1-$DEVICE_NAME.img
+    mcp $OUT/recovery.img recoveries/recovery-clockwork-$DEVICE_NAME.img
 done
