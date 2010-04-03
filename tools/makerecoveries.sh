@@ -11,12 +11,6 @@ else
     PRODUCTS=$2
 fi
 
-PUBLISH_PATH=~/Desktop/recovery/
-
-rm -r $PUBLISH_PATH
-mkdir -p $PUBLISH_PATH
-
-
 for lunchoption in $PRODUCTS
 do
     lunch $lunchoption
