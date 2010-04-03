@@ -15,8 +15,15 @@ for lunchoption in $PRODUCTS
 do
     lunch $lunchoption
     rm -rf $OUT/obj/EXECUTABLES/recovery_intermediates
+    rm -rf $OUT/recovery*
     DEVICE_NAME=$(echo $TARGET_PRODUCT | sed s/koush_// | sed s/aosp_// | sed s/_us// | sed s/cyanogen_//)
-    make -j16 recoveryimage 
+    make -j16 recoveryimage
+    RESULT=$?
+    if [ $RESULT != "0" ]
+    then
+        echo build error!
+        break
+    fi
     PUBLISHED_RECOVERIES=$PUBLISHED_RECOVERIES' '$(mcp $OUT/recovery.img recoveries/recovery-clockwork-$DEVICE_NAME.img)
     mcp $OUT/recovery.img recoveries/recovery-clockwork-$1-$DEVICE_NAME.img
 done
