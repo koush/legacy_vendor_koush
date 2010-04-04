@@ -20,7 +20,9 @@
 # In particular, you can add lunch options with the add_lunch_combo
 # function: add_lunch_combo generic-eng
 
-add_lunch_combo koush_magic_us-eng
+add_lunch_combo koush_dream-eng
+add_lunch_combo koush_sapphire-eng
+add_lunch_combo koush_magic-eng
 add_lunch_combo koush_hero-eng
 add_lunch_combo koush_heroc-eng
 add_lunch_combo koush_desirec-eng

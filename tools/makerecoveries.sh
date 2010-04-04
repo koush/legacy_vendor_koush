@@ -6,7 +6,7 @@ fi
 
 if [ -z $2 ]
 then
-    PRODUCTS='aosp_dream_us-eng aosp_sapphire_us-eng cyanogen_passion-eng cyanogen_sholes-eng koush_magic_us-eng koush_hero-eng koush_heroc-eng koush_desirec-eng'
+    PRODUCTS='koush_dream-eng koush_sapphire-eng cyanogen_passion-eng cyanogen_sholes-eng koush_magic-eng koush_hero-eng koush_heroc-eng koush_desirec-eng'
 else
     PRODUCTS=$2
 fi

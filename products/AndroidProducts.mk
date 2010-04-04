@@ -26,7 +26,9 @@
 #
 
 PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/koush_sapphire.mk \
+    $(LOCAL_DIR)/koush_dream.mk \
     $(LOCAL_DIR)/koush_hero.mk \
     $(LOCAL_DIR)/koush_heroc.mk \
     $(LOCAL_DIR)/koush_desirec.mk \
-    $(LOCAL_DIR)/koush_magic_us.mk
+    $(LOCAL_DIR)/koush_magic.mk
