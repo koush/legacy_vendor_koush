@@ -1,0 +1,5 @@
+blocksize 131072
+boot 
+recovery 
+system 
+userdata 
