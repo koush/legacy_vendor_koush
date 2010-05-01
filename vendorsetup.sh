@@ -22,6 +22,7 @@
 
 add_lunch_combo koush_dream-eng
 add_lunch_combo koush_sapphire-eng
+add_lunch_combo koush_passion-eng
 add_lunch_combo koush_magic-eng
 add_lunch_combo koush_hero-eng
 add_lunch_combo koush_heroc-eng
