@@ -10,6 +10,8 @@ PRODUCT_DEVICE := magic
 # The user-visible product name
 PRODUCT_MODEL := Magic (US)
 
+PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=sapphire TARGET_BOOTLOADER_BOARD_NAME=sapphire
+
 ifeq ($(TARGET_PRODUCT),$(PRODUCT_NAME))
 TARGET_PREBUILT_RECOVERY_KERNEL := vendor/koush/prebuilt/$(PRODUCT_DEVICE)_recovery_kernel
 endif
