@@ -27,3 +27,4 @@ add_lunch_combo koush_magic-eng
 add_lunch_combo koush_hero-eng
 add_lunch_combo koush_heroc-eng
 add_lunch_combo koush_desirec-eng
+add_lunch_combo koush_pulsemini-eng
