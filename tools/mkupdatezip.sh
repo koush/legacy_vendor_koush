@@ -19,7 +19,7 @@ then
 fi
 
 CURDIR=$(pwd)
-NANDROID=$CURDIR/$1
+NANDROID=$1
 MYDIR=/tmp/mkupdatezip
 rm -rf $MYDIR
 mkdir -p $MYDIR
@@ -31,7 +31,17 @@ cd package
 rm -rf SYSTEM
 mkdir -p SYSTEM
 cd SYSTEM
-unyaffs $NANDROID/system.img
+if [ -f $NANDROID/system.img ]
+then
+    echo Extracting system... $NANDROID/system.img
+    unyaffs $NANDROID/system.img
+elif [ ! -f $NANDROID/system.img ]
+then
+    echo Extracting system... $NANDROID/system.tar
+    tar xvf $NANDROID/system.tar
+else 
+    exit 1
+fi
 
 cd $MYDIR
 unpackbootimg $NANDROID/boot.img
@@ -39,7 +49,7 @@ cd package
 rm -rf BOOT
 mkdir -p BOOT
 cd BOOT
-cp /tmp/boot.img-base base
+cp $MYDIR/boot.img-base base
 cp $MYDIR/boot.img-cmdline cmdline
 cp $MYDIR/boot.img-zImage kernel
 mkdir -p RAMDISK
@@ -69,4 +79,4 @@ cd package
 zip -ry ../intermediate.zip .
 cd $MYDIR
 cd ~/android
-build/tools/releasetools/ota_from_target_files -n -m amend -p out/host/darwin-x86 $MYDIR/intermediate.zip $CURDIR/$2
+build/tools/releasetools/ota_from_target_files -n -m edify -p out/host/darwin-x86 $MYDIR/intermediate.zip $CURDIR/$2
