@@ -6,7 +6,7 @@ fi
 
 if [ -z $2 ]
 then
-    PRODUCTS='koush_dream-eng koush_sapphire-eng cyanogen_passion-eng cyanogen_sholes-eng koush_magic-eng koush_hero-eng koush_heroc-eng koush_desirec-eng'
+    PRODUCTS='koush_dream-eng koush_sapphire-eng koush_passion-eng cyanogen_sholes-eng koush_magic-eng koush_hero-eng koush_heroc-eng koush_desirec-eng'
 else
     PRODUCTS=$2
 fi
@@ -26,11 +26,23 @@ do
         echo build error!
         break
     fi
-    PUBLISHED_RECOVERIES=$PUBLISHED_RECOVERIES' '$(mcp $OUT/recovery.img recoveries/recovery-clockwork-$DEVICE_NAME.img)
-    mcp $OUT/recovery.img recoveries/recovery-clockwork-$1-$DEVICE_NAME.img
+    PUBLISHED_RECOVERIES=$PUBLISHED_RECOVERIES' '$(SMALL_MCP=true mcp $OUT/recovery.img recoveries/recovery-clockwork-$DEVICE_NAME.img)
+    SMALL_MCP=true mcp $OUT/recovery.img recoveries/recovery-clockwork-$1-$DEVICE_NAME.img
+    
+    if [ $DEVICE_NAME == "supersonic" ]
+    then
+        . vendor/koush/tools/mkrecoveryzip.sh $1
+        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
+    fi
+    
+    if [ $DEVICE_NAME == "passion" ]
+    then
+        . vendor/koush/tools/mkrecoveryzip.sh $1
+        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-bravo.zip
+    fi
 done
 
-for published_recovery in $PUBLISHED_RECOVERY
+for published_recovery in $PUBLISHED_RECOVERIES
 do
     echo $published_recovery
 done
