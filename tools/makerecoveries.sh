@@ -17,6 +17,7 @@ do
     rm -rf $OUT/obj/EXECUTABLES/recovery_intermediates
     rm -rf $OUT/recovery*
     rm -rf $OUT/root*
+    make installclean
     DEVICE_NAME=$(echo $TARGET_PRODUCT | sed s/koush_// | sed s/aosp_// | sed s/_us// | sed s/cyanogen_//)
     make -j16 recoveryimage
     RESULT=$?

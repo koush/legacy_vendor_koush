@@ -26,6 +26,7 @@
 #
 
 PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/koush_supersonic.mk \
     $(LOCAL_DIR)/koush_pulsemini.mk \
     $(LOCAL_DIR)/koush_passion.mk \
     $(LOCAL_DIR)/koush_sapphire.mk \
