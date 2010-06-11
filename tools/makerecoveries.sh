@@ -4,7 +4,7 @@ then
     return
 fi
 
-if [ -z $2 ]
+if [ -z "$2" ]
 then
     PRODUCTS='koush_dream-eng koush_sapphire-eng koush_passion-eng cyanogen_sholes-eng koush_magic-eng koush_hero-eng koush_heroc-eng koush_desirec-eng'
 else
