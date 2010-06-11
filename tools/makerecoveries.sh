@@ -6,7 +6,7 @@ fi
 
 if [ -z "$2" ]
 then
-    PRODUCTS='koush_dream-eng koush_sapphire-eng koush_passion-eng cyanogen_sholes-eng koush_magic-eng koush_hero-eng koush_heroc-eng koush_desirec-eng'
+    PRODUCTS='koush_supersonic-eng koush_bravo-eng koush_dream-eng koush_sapphire-eng koush_passion-eng cyanogen_sholes-eng koush_magic-eng koush_hero-eng koush_heroc-eng koush_desirec-eng'
 else
     PRODUCTS=$2
 fi
@@ -37,19 +37,20 @@ do
         SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
         SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
     fi
+    
+    if [ $DEVICE_NAME == "bravo" ]
+    then
+        . vendor/koush/tools/mkrecoveryzip.sh $1
+        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
+        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
+    fi
 
     if [ $DEVICE_NAME == "dream" ]
     then
-        . vendor/koush/tools/mkrecoveryzip.sh $1
-        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-legend.zip
-        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-legend.zip
-    fi
-    
-    if [ $DEVICE_NAME == "passion" ]
-    then
-        . vendor/koush/tools/mkrecoveryzip.sh $1
-        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-bravo.zip
-        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-bravo.zip
+        echo No legend!
+        #. vendor/koush/tools/mkrecoveryzip.sh $1
+        #SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-legend.zip
+        #SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-legend.zip
     fi
 done
 
