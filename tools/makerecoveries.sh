@@ -11,6 +11,8 @@ else
     PRODUCTS=$2
 fi
 
+unset PUBLISHED_RECOVERIES
+
 for lunchoption in $PRODUCTS
 do
     lunch $lunchoption
@@ -33,12 +35,21 @@ do
     then
         . vendor/koush/tools/mkrecoveryzip.sh $1
         SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
+        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
+    fi
+
+    if [ $DEVICE_NAME == "dream" ]
+    then
+        . vendor/koush/tools/mkrecoveryzip.sh $1
+        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-legend.zip
+        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-legend.zip
     fi
     
     if [ $DEVICE_NAME == "passion" ]
     then
         . vendor/koush/tools/mkrecoveryzip.sh $1
         SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-bravo.zip
+        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-bravo.zip
     fi
 done
 

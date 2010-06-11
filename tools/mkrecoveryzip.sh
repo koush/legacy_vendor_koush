@@ -23,6 +23,7 @@ rm -rf $RECOVERY_DIR
 mkdir -p $RECOVERY_DIR
 cd $RECOVERY_DIR
 cp -R $OUT/recovery/root/sbin sbin
+cp -R $OUT/recovery/root/res res
 SCRIPT_DIR=META-INF/com/google/android
 mkdir -p $SCRIPT_DIR
 cp $OUT/system/bin/updater $SCRIPT_DIR/update-binary
@@ -60,7 +61,7 @@ fi
 done
 
 
-echo 'ui_print("Replacing stock recovery with stock recovery...");' >> $UPDATER_SCRIPT
+echo 'ui_print("Replacing stock recovery with ClockworkMod recovery...");' >> $UPDATER_SCRIPT
 echo 'symlink("recovery", "/sbin/busybox");' >> $UPDATER_SCRIPT
 
 for file in $FILES
