@@ -35,4 +35,5 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/koush_heroc.mk \
     $(LOCAL_DIR)/koush_desirec.mk \
     $(LOCAL_DIR)/koush_magic.mk \
+    $(LOCAL_DIR)/koush_inc.mk \
     $(LOCAL_DIR)/koush_bravo.mk
