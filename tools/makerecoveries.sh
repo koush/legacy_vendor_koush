@@ -28,33 +28,33 @@ do
         echo build error!
         break
     fi
-    PUBLISHED_RECOVERIES=$PUBLISHED_RECOVERIES' '$(SMALL_MCP=true mcp $OUT/recovery.img recoveries/recovery-clockwork-$DEVICE_NAME.img)
+    PUBLISHED_RECOVERIES=$PUBLISHED_RECOVERIES' '$(REALLY_SMALL_MCP=true mcp $OUT/recovery.img recoveries/recovery-clockwork-$DEVICE_NAME.img)
     SMALL_MCP=true mcp $OUT/recovery.img recoveries/recovery-clockwork-$1-$DEVICE_NAME.img
     
     if [ $DEVICE_NAME == "supersonic" ]
     then
         . vendor/koush/tools/mkrecoveryzip.sh $1
         SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
-        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
+        REALLY_SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
     fi
     
     if [ $DEVICE_NAME == "bravo" ]
     then
         . vendor/koush/tools/mkrecoveryzip.sh $1
         SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
-        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
+        REALLY_SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
     fi
     
     if [ $DEVICE_NAME == "inc" ]
     then
         . vendor/koush/tools/mkrecoveryzip.sh $1
         SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
-        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
+        REALLY_SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
     fi
 
     if [ $DEVICE_NAME == "dream" ]
     then
-        echo No legend!
+        echo No Legend!
         #. vendor/koush/tools/mkrecoveryzip.sh $1
         #SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-legend.zip
         #SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-legend.zip
