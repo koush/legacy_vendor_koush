@@ -1,17 +1,17 @@
-$(call inherit-product, build/target/product/generic.mk)
+$(call inherit-product, vendor/koush/products/koush.mk)
 
 # How this product is called in the build system
-PRODUCT_NAME := koush_supersonic
+PRODUCT_NAME := koush_sholes
 
 # Which actual hardware this is based on (this is a path under vendor/)
-PRODUCT_MANUFACTURER := htc
-PRODUCT_DEVICE := supersonic
+PRODUCT_MANUFACTURER := motorola
+PRODUCT_DEVICE := sholes-open
 
 # The user-visible product name
-PRODUCT_MODEL := HTC Evo (US)
+PRODUCT_MODEL := Motorola Droid (US)
 
 ifeq ($(TARGET_PRODUCT),$(PRODUCT_NAME))
 TARGET_PREBUILT_RECOVERY_KERNEL := vendor/koush/prebuilt/$(PRODUCT_DEVICE)_recovery_kernel
 endif
 
-include vendor/htc/supersonic/device_supersonic.mk
+include vendor/motorola/sholes-open/device_sholes.mk

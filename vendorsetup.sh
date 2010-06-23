@@ -31,3 +31,4 @@ add_lunch_combo koush_supersonic-eng
 add_lunch_combo koush_pulsemini-eng
 add_lunch_combo koush_bravo-eng
 add_lunch_combo koush_inc-eng
+add_lunch_combo koush_sholes-eng
