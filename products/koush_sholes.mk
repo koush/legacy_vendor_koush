@@ -5,7 +5,7 @@ PRODUCT_NAME := koush_sholes
 
 # Which actual hardware this is based on (this is a path under vendor/)
 PRODUCT_MANUFACTURER := motorola
-PRODUCT_DEVICE := sholes-open
+PRODUCT_DEVICE := sholes
 
 # The user-visible product name
 PRODUCT_MODEL := Motorola Droid (US)
@@ -14,4 +14,4 @@ ifeq ($(TARGET_PRODUCT),$(PRODUCT_NAME))
 TARGET_PREBUILT_RECOVERY_KERNEL := vendor/koush/prebuilt/$(PRODUCT_DEVICE)_recovery_kernel
 endif
 
-include vendor/motorola/sholes-open/device_sholes.mk
+include vendor/motorola/sholes/device_sholes.mk
