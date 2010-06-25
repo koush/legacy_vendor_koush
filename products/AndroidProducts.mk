@@ -37,4 +37,5 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/koush_magic.mk \
     $(LOCAL_DIR)/koush_inc.mk \
     $(LOCAL_DIR)/koush_sholes.mk \
+    $(LOCAL_DIR)/koush_espresso.mk \
     $(LOCAL_DIR)/koush_bravo.mk
