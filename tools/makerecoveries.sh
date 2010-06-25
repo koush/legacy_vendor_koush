@@ -45,12 +45,11 @@ do
         REALLY_SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
     fi
 
-    if [ $DEVICE_NAME == "dream" ]
+    if [ $DEVICE_NAME == "liberty" ]
+        . vendor/koush/tools/mkrecoveryzip.sh $1
+        SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
+        REALLY_SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
     then
-        echo No Legend!
-        #. vendor/koush/tools/mkrecoveryzip.sh $1
-        #SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-legend.zip
-        #SMALL_MCP=true mcp $OUT/utilities/update.zip recoveries/recovery-clockwork-legend.zip
     fi
 done
 
