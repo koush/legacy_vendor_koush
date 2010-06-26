@@ -15,7 +15,10 @@ fi
 pushd .
 croot
 
-make -j8 out/target/product/$DEVICE_NAME/system/bin/updater
+if [ ! -f out/target/product/$DEVICE_NAME/system/bin/updater ]
+then
+    make -j8 out/target/product/$DEVICE_NAME/system/bin/updater
+fi
 
 UTILITIES_DIR=$OUT/utilities
 RECOVERY_DIR=$UTILITIES_DIR/recovery
