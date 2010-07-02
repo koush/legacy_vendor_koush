@@ -20,6 +20,9 @@ fi
 
 CURDIR=$(pwd)
 NANDROID=$1
+pushd $NANDROID
+NANDROID=$(pwd)
+popd
 MYDIR=/tmp/mkupdatezip
 rm -rf $MYDIR
 mkdir -p $MYDIR
