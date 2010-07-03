@@ -40,4 +40,5 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/koush_espresso.mk \
     $(LOCAL_DIR)/koush_buzz.mk \
     $(LOCAL_DIR)/koush_liberty.mk \
+    $(LOCAL_DIR)/koush_streak.mk \
     $(LOCAL_DIR)/koush_bravo.mk
