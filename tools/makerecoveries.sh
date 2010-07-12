@@ -70,6 +70,13 @@ do
         SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
         REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
     fi
+
+    if [ $DEVICE_NAME == "sholes" ]
+    then
+        . vendor/koush/tools/mkrecoveryzip.sh $1
+        SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-milestone.zip
+        REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-milestone.zip
+    fi
 done
 
 for published_recovery in $PUBLISHED_RECOVERIES
