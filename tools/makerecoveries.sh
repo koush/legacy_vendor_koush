@@ -38,8 +38,10 @@ do
         echo build error!
         break
     fi
-    PUBLISHED_RECOVERIES=$PUBLISHED_RECOVERIES' '$(REALLY_SMALL_MCP=true mcpguard $OUT/recovery.img recoveries/recovery-clockwork-$DEVICE_NAME.img)
+    SMALL_MCP=true md5sum $OUT/recovery.img > $OUT/recovery.img.md5sum.txt
+    mcpguard $OUT/recovery.img.md5sum recoveries/recovery-clockwork-$DEVICE_NAME.img.md5sum.txt
     SMALL_MCP=true mcpguard $OUT/recovery.img recoveries/recovery-clockwork-$1-$DEVICE_NAME.img
+    SMALL_MCP=true mcpguard $OUT/recovery.img.md5sum.txt recoveries/recovery-clockwork-$1-$DEVICE_NAME.img.md5sum.txt
 
     if [ $DEVICE_NAME == "bravo" ]
     then
