@@ -6,10 +6,17 @@ fi
 
 if [ -z "$2" ]
 then
-    PRODUCTS='koush_legend-eng koush_pulsemini-eng koush_liberty-eng cyanogen_inc-eng koush_supersonic-eng koush_bravo-eng koush_dream-eng koush_sapphire-eng koush_passion-eng cyanogen_sholes-eng koush_magic-eng koush_hero-eng koush_heroc-eng koush_desirec-eng'
+    PRODUCTS='koush_buzz-eng koush_streak-eng koush_espresso-eng koush_legend-eng koush_pulsemini-eng koush_liberty-eng cyanogen_inc-eng koush_supersonic-eng koush_bravo-eng koush_dream-eng koush_sapphire-eng koush_passion-eng cyanogen_sholes-eng koush_magic-eng koush_hero-eng koush_heroc-eng koush_desirec-eng'
 else
     PRODUCTS=$2
 fi
+
+for product in $PRODUCTS
+do
+    echo $product
+done
+
+echo $(echo $PRODUCTS | wc -w) Products
 
 unset PUBLISHED_RECOVERIES
 
@@ -17,6 +24,8 @@ function mcpguard () {
     if [ -z $NO_UPLOAD ]
     then
         mcp $1 $2
+        md5sum $1 > $1.md5sum.txt
+        mcp $1.md5sum.txt $2.md5sum.txt
     fi
 }
 
@@ -38,10 +47,8 @@ do
         echo build error!
         break
     fi
-    SMALL_MCP=true md5sum $OUT/recovery.img > $OUT/recovery.img.md5sum.txt
-    mcpguard $OUT/recovery.img.md5sum recoveries/recovery-clockwork-$DEVICE_NAME.img.md5sum.txt
+    SMALL_MCP=true mcpguard $OUT/recovery.img recoveries/recovery-clockwork-$DEVICE_NAME.img
     SMALL_MCP=true mcpguard $OUT/recovery.img recoveries/recovery-clockwork-$1-$DEVICE_NAME.img
-    SMALL_MCP=true mcpguard $OUT/recovery.img.md5sum.txt recoveries/recovery-clockwork-$1-$DEVICE_NAME.img.md5sum.txt
 
     if [ $DEVICE_NAME == "bravo" ]
     then
@@ -65,6 +72,13 @@ do
     fi
 
     if [ $DEVICE_NAME == "legend" ]
+    then
+        . vendor/koush/tools/mkrecoveryzip.sh $1
+        SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
+        REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
+    fi
+
+    if [ $DEVICE_NAME == "espresso" ]
     then
         . vendor/koush/tools/mkrecoveryzip.sh $1
         SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
