@@ -6,7 +6,7 @@ fi
 
 if [ -z "$2" ]
 then
-    PRODUCTS='koush_buzz-eng koush_streak-eng koush_espresso-eng koush_legend-eng koush_pulsemini-eng koush_liberty-eng cyanogen_inc-eng koush_supersonic-eng koush_bravo-eng koush_dream-eng koush_sapphire-eng koush_passion-eng cyanogen_sholes-eng koush_magic-eng koush_hero-eng koush_heroc-eng koush_desirec-eng'
+    PRODUCTS='koush_buzz-eng koush_streak-eng koush_espresso-eng koush_legend-eng koush_pulsemini-eng koush_liberty-eng koush_inc-eng koush_supersonic-eng koush_bravo-eng koush_dream-eng koush_sapphire-eng koush_passion-eng koush_sholes-eng koush_magic-eng koush_hero-eng koush_heroc-eng koush_desirec-eng'
 else
     PRODUCTS=$2
 fi
@@ -40,7 +40,8 @@ do
         rm -rf $OUT/root*
     fi
     DEVICE_NAME=$(echo $TARGET_PRODUCT | sed s/koush_// | sed s/aosp_// | sed s/_us// | sed s/cyanogen_//)
-    make -j16 recoveryimage
+    PRODUCT_NAME=$(basename $OUT)
+    make -j16 recoveryimage out/target/product/$PRODUCT_NAME/system/bin/updater
     RESULT=$?
     if [ $RESULT != "0" ]
     then
@@ -50,40 +51,9 @@ do
     SMALL_MCP=true mcpguard $OUT/recovery.img recoveries/recovery-clockwork-$DEVICE_NAME.img
     SMALL_MCP=true mcpguard $OUT/recovery.img recoveries/recovery-clockwork-$1-$DEVICE_NAME.img
 
-    if [ $DEVICE_NAME == "bravo" ]
-    then
-        . vendor/koush/tools/mkrecoveryzip.sh $1
-        SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
-        REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
-    fi
-    
-    if [ $DEVICE_NAME == "inc" ]
-    then
-        . vendor/koush/tools/mkrecoveryzip.sh $1
-        SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
-        REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
-    fi
-
-    if [ $DEVICE_NAME == "liberty" ]
-    then
-        . vendor/koush/tools/mkrecoveryzip.sh $1
-        SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
-        REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
-    fi
-
-    if [ $DEVICE_NAME == "legend" ]
-    then
-        . vendor/koush/tools/mkrecoveryzip.sh $1
-        SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
-        REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
-    fi
-
-    if [ $DEVICE_NAME == "espresso" ]
-    then
-        . vendor/koush/tools/mkrecoveryzip.sh $1
-        SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
-        REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
-    fi
+    . vendor/koush/tools/mkrecoveryzip.sh $1
+    SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
+    REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
 
     if [ $DEVICE_NAME == "sholes" ]
     then

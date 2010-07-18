@@ -10,8 +10,8 @@ PRODUCT_DEVICE := pulsemini
 # The user-visible product name
 PRODUCT_MODEL := Pulse Mini
 
-#ifeq ($(TARGET_PRODUCT),$(PRODUCT_NAME))
-#TARGET_PREBUILT_RECOVERY_KERNEL := vendor/koush/prebuilt/$(PRODUCT_DEVICE)_recovery_kernel
-#endif
+ifeq ($(TARGET_PRODUCT),$(PRODUCT_NAME))
+TARGET_PREBUILT_RECOVERY_KERNEL := vendor/koush/prebuilt/$(PRODUCT_DEVICE)_recovery_kernel
+endif
 
 include vendor/huawei/pulsemini/device_pulsemini.mk
