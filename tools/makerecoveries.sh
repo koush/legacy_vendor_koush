@@ -57,9 +57,16 @@ do
 
     if [ $DEVICE_NAME == "sholes" ]
     then
-        . vendor/koush/tools/mkrecoveryzip.sh $1
         SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-milestone.zip
         REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-milestone.zip
+    fi
+    
+    if [ $DEVICE_NAME == "galaxys" ]
+    then
+    SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-vibrant.zip
+    REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-vibrant.zip
+    SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-captivate.zip
+    REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-captivate.zip
     fi
 done
 
