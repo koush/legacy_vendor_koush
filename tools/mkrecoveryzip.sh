@@ -14,6 +14,7 @@ fi
 
 pushd .
 croot
+ANDROID_ROOT=$(pwd)
 
 UTILITIES_DIR=$OUT/utilities
 RECOVERY_DIR=$UTILITIES_DIR/recovery
@@ -82,6 +83,6 @@ echo 'run_program("/sbin/busybox", "sh", "-c", "/sbin/killrecovery.sh");' >> $UP
 rm -f $UTILITIES_DIR/unsigned.zip
 rm -f $UTILITIES_DIR/update.zip
 zip -ry $UTILITIES_DIR/unsigned.zip . -x $SYMLINKS '*\[*' '*\[\[*'
-java -jar ~/android/out/host/darwin-x86/framework/signapk.jar -w ~/android/build/target/product/security/testkey.x509.pem ~/android/build/target/product/security/testkey.pk8 $UTILITIES_DIR/unsigned.zip $UTILITIES_DIR/update.zip
+java -jar $ANDROID_ROOT/out/host/darwin-x86/framework/signapk.jar -w $ANDROID_ROOT/build/target/product/security/testkey.x509.pem $ANDROID_ROOT/build/target/product/security/testkey.pk8 $UTILITIES_DIR/unsigned.zip $UTILITIES_DIR/update.zip
 
 popd
