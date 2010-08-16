@@ -82,4 +82,4 @@ cd package
 zip -ry ../intermediate.zip .
 cd $MYDIR
 cd ~/android
-build/tools/releasetools/ota_from_target_files -n -m edify -p out/host/darwin-x86 $MYDIR/intermediate.zip $CURDIR/$2
+build/tools/releasetools/ota_from_target_files $3 -n -m edify -p out/host/darwin-x86 $MYDIR/intermediate.zip $CURDIR/$2

@@ -39,7 +39,10 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/koush_sholes.mk \
     $(LOCAL_DIR)/koush_espresso.mk \
     $(LOCAL_DIR)/koush_buzz.mk \
+    $(LOCAL_DIR)/koush_galaxys.mk \
     $(LOCAL_DIR)/koush_liberty.mk \
     $(LOCAL_DIR)/koush_legend.mk \
     $(LOCAL_DIR)/koush_streak.mk \
+    $(LOCAL_DIR)/koush_pulse.mk \
+    $(LOCAL_DIR)/koush_droidx.mk \
     $(LOCAL_DIR)/koush_bravo.mk
