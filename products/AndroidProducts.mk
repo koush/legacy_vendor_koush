@@ -45,5 +45,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/koush_streak.mk \
     $(LOCAL_DIR)/koush_pulse.mk \
     $(LOCAL_DIR)/koush_droidx.mk \
+    $(LOCAL_DIR)/koush_droid2.mk \
     $(LOCAL_DIR)/koush_aloha.mk \
     $(LOCAL_DIR)/koush_bravo.mk

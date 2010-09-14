@@ -40,4 +40,5 @@ add_lunch_combo koush_liberty-eng
 add_lunch_combo koush_galaxys-eng
 add_lunch_combo koush_pulse-eng
 add_lunch_combo koush_droidx-eng
+add_lunch_combo koush_droid2-eng
 add_lunch_combo koush_aloha-eng
