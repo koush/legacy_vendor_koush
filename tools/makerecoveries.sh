@@ -48,25 +48,25 @@ do
         echo build error!
         break
     fi
-    SMALL_MCP=true mcpguard $OUT/recovery.img recoveries/recovery-clockwork-$DEVICE_NAME.img
-    SMALL_MCP=true mcpguard $OUT/recovery.img recoveries/recovery-clockwork-$1-$DEVICE_NAME.img
+    mcpguard $OUT/recovery.img recoveries/recovery-clockwork-$DEVICE_NAME.img
+    mcpguard $OUT/recovery.img recoveries/recovery-clockwork-$1-$DEVICE_NAME.img
 
     . vendor/koush/tools/mkrecoveryzip.sh $1
-    SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
-    REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
+    mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-$DEVICE_NAME.zip
+    mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$DEVICE_NAME.zip
 
     if [ $DEVICE_NAME == "sholes" ]
     then
-        SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-milestone.zip
-        REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-milestone.zip
+        mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-milestone.zip
+        mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-milestone.zip
     fi
     
     if [ $DEVICE_NAME == "galaxys" ]
     then
-    SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-vibrant.zip
-    REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-vibrant.zip
-    SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-captivate.zip
-    REALLY_SMALL_MCP=true mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-captivate.zip
+        mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-vibrant.zip
+        mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-vibrant.zip
+        mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-$1-captivate.zip
+        mcpguard $OUT/utilities/update.zip recoveries/recovery-clockwork-captivate.zip
     fi
 done
 
@@ -74,3 +74,4 @@ for published_recovery in $PUBLISHED_RECOVERIES
 do
     echo $published_recovery
 done
+
