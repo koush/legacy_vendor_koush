@@ -39,6 +39,9 @@ add_lunch_combo koush_streak-eng
 add_lunch_combo koush_legend-eng
 add_lunch_combo koush_liberty-eng
 add_lunch_combo koush_galaxys-eng
+add_lunch_combo koush_fascinate-eng
+add_lunch_combo koush_epic-eng
 add_lunch_combo koush_pulse-eng
 add_lunch_combo koush_droidx-eng
+add_lunch_combo koush_droid2-eng
 add_lunch_combo koush_aloha-eng
