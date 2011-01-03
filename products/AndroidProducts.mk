@@ -50,4 +50,5 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/koush_droid2.mk \
     $(LOCAL_DIR)/koush_aloha.mk \
     $(LOCAL_DIR)/koush_bravoc.mk \
+    $(LOCAL_DIR)/koush_salsa.mk \
     $(LOCAL_DIR)/koush_bravo.mk
