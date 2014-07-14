@@ -46,3 +46,4 @@ add_lunch_combo koush_droidx-eng
 add_lunch_combo koush_droid2-eng
 add_lunch_combo koush_aloha-eng
 add_lunch_combo koush_salsa-eng
+add_lunch_combo koush_tcc8902-eng
